@@ -75,27 +75,21 @@ time.sleep(rando)
 a('//*[@id="placeYourOrder"]/span/input')
 '''
 
-
-
-
-#Sign in for amazon
-'''
+#Sign in to amazon
 url = ("https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fcss%2Fhomepage.html%3Fref_%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&")
 driver.get(url)
 
 time.sleep(1.1)
-driver.find_element_by_xpath('//*[@id="ap_email"]').send_keys('moltenmarlin@gmail.com')
+driver.find_element_by_xpath('//*[@id="ap_email"]').send_keys('email@gmail.com')
 time.sleep(1.9)
 driver.find_element_by_xpath('//*[@id="continue"]').click()
 
-driver.find_element_by_xpath('//*[@id="ap_password"]').send_keys('Goggle741852+')
+driver.find_element_by_xpath('//*[@id="ap_password"]').send_keys('password')
 time.sleep(1.6)
 driver.find_element_by_xpath('//*[@id="signInSubmit"]').click()
 time.sleep(.75)
 driver.find_element_by_xpath('//*[@id="authportal-main-section"]/div[2]/div/div/div/form/div/div[2]/div/div/label/div/label/input').click()
-'''
 
-'''
 driver.get("https://sslproxies.org/")
 driver.find_element_by_xpath('//*[@id="proxylisttable_filter"]/label/input').send_keys('United States elite')
 time.sleep(2)
@@ -105,6 +99,10 @@ time.sleep(2)
 ips = [my_elem.get_attribute("innerHTML") for my_elem in WebDriverWait(driver, 5).until(EC.visibility_of_all_elements_located((By.XPATH, "//table[@class='table table-striped table-bordered dataTable']//tbody//tr[@role='row']/td[position() = 1]")))]
 ports = [my_elem.get_attribute("innerHTML") for my_elem in WebDriverWait(driver, 5).until(EC.visibility_of_all_elements_located((By.XPATH, "//table[@class='table table-striped table-bordered dataTable']//tbody//tr[@role='row']/td[position() = 2]")))]
 driver.quit()
+
+
+#PROXY SETUP NOT FINISHED
+'''
 proxies = []
 for i in range(0, len(ips)):
     proxies.append(ips[i]+':'+ports[i])
@@ -118,5 +116,5 @@ for i in range(0, len(proxies)):
         print('YAH')
     except Exception:
         driver.quit()
-'''
 
+'''
